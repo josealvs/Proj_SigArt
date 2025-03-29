@@ -1,6 +1,6 @@
 # **API de Gerenciamento de Tarefas (To-Do List)**
 
-Uma API desenvolvida em **Django** e **Django Rest Framework** para gerenciar uma lista de tarefas (To-Do List). A API permite criar, ler, atualizar, excluir e listar tarefas. Também inclui funcionalidades de busca e validação de dados.
+Uma API desenvolvida em **Django** e **Django Rest Framework** para gerenciar uma lista de tarefas (To-Do List) para o processo seletivo do SigArte. A API permite criar, ler, atualizar, excluir e listar tarefas. Também inclui funcionalidades de busca e validação de dados.
 
 ## 🚀 **Tecnologias Usadas**
 
