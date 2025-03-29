@@ -1,19 +1,19 @@
-from django.test import TestCase
 from rest_framework.test import APITestCase
-from django.urls import reverse
 from rest_framework import status
+from django.urls import reverse
 from .models import Task
 
 class TaskAPITestCase(APITestCase):
 
     def setUp(self):
+        """Configuração inicial: cria uma tarefa de exemplo"""
         self.task = Task.objects.create(
-            title = "Primeira Tarefa",
-            description = "Tarefa Teste",
-            due_date = "2025-04-01",
-            status = "new",
+            title="Tarefa Teste",
+            description="Descrição da tarefa",
+            due_date="2025-04-01",
+            status="new"
         )
-        self.list_url = reverse('task-list')
+        self.list_url = reverse('task-list')  # URL para listar tarefas
 
     def test_list_tasks(self):
         """Teste para listar tarefas"""
@@ -26,15 +26,15 @@ class TaskAPITestCase(APITestCase):
             "title": "Nova Tarefa",
             "description": "Criando uma nova tarefa",
             "due_date": "2025-04-10",
-            "status":"new"
+            "status": "new"
         }
-        response = self.client.post(self.list_url, data, format ='json')
+        response = self.client.post(self.list_url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Task.objects.count(), 2)
 
     def test_retrieve_task(self):
-        """Teste para visualizar uma tarefa específica """
-        url = reverse('tash-detail', kwargs={'pk': self.task.id})
+        """Teste para visualizar uma tarefa específica"""
+        url = reverse('task-detail', kwargs={'pk': self.task.id})
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 

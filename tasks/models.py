@@ -12,7 +12,7 @@ class Task(models.Model):
 
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=250, blank=True, null=True)
-    due_data = models.DateField()
+    due_date = models.DateTimeField(null=True, blank=True)  
     completion_data = models.DateField(blank=True, null=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='new')
 
